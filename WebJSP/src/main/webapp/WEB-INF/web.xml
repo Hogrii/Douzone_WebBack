@@ -15,4 +15,23 @@
   	<param-name>filepath</param-name>
   	<param-value>C:\Douzone\Web\WebBack\download</param-value>  	
   </context-param>
+  
+  <!-- 
+  	WebAPP(context)에 적용되는 Error Page 설정하기
+  	
+  	1. 상태코드(500 서버 문제, 404 요청페이지 없음, 403 접근 권한 없음)마다 페이지를 만들어서 서비스 가능
+  	2. 예외처리 별로 세분화 : NullpointException 처리 페이지, IndexOutOfBound 처리 페이지 >> 근데 실제로 잘 안씀
+  	
+  	처리는 최종 배포시에만 처리(개발시에는 예외 코드 확인해야 한다) 
+   -->
+  <!-- 
+  	<error-page>
+   		<error-code>500</error-code>
+   		<location>/error/Error500.jsp</location>
+   	</error-page>
+   	<error-page>
+   		<error-code>404</error-code>
+   		<location>/error/Error404.jsp</location>
+   	</error-page>
+   -->
 </web-app>
