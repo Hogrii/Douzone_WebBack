@@ -27,5 +27,19 @@
 	<a href="<%= request.getContextPath() %>/Board?cmd=boarddelete">게시판 삭제하기</a>
 	<br>
 	<a href="<%= request.getContextPath() %>/Board?cmd=login">보안 페이지 로그인 처리</a>
+	<br>
+	
+	<!-- 20230524 -->
+	<h3>FrontServletController</h3>
+	<a href="<%= request.getContextPath() %>/action.do?cmd=greeting">GET요청..</a>
+	<br>
+	<!-- 
+		com.kosa > FrontServletController Servlet 생성 > urlPatter = /action.do > doGET() 작업
+		view page > webapp > greeting.jsp
+		cmd=greeting >> 1. greeting > Message 객체 생성 > function parameter로 greeting 제공
+		Message 객체 저장
+		view page > greeting.jsp 전송
+		view page > 객체 출력
+	 -->
 </body>
 </html>
