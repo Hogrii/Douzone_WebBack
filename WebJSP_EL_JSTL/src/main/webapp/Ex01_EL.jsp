@@ -6,7 +6,7 @@
 	EL 이란?
 	Expression Language의 약자
 	JSP 2.0에서 새롭게 추가된 스크립트 언어
-	기존의 Script tag의 표현식(정보 : 스크립트릿) tag에서 업그레이드된 버전 (${ 정보 })
+	기존의 Script tag의 표현식(정보 : 스크립트릿) tag에서 업그레이드된 버전 (정보 : EL)
 	
 	[ 주요 특징 ]
 	1) JSP 속성영역 (request,  response, session, application) 저장된 속성 객체의 property를 출력한다 
@@ -27,7 +27,16 @@
 	3. requestScope
 	4. sessionScope
 	5. applicationScope
- -->
+-->
+<%
+	// 기존 자바코드
+	request.setCharacterEncoding("UTF-8");
+
+	String id = request.getParameter("userid");
+	
+	request.setAttribute("name", "kosa");
+	request.setAttribute("user", "hong");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +44,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<h3>기존 JSP 출력</h3>
+	<b><%= id %></b><br>
+	<b><%= request.getAttribute("name") %></b><br>
+	<b><%= request.getAttribute("user") %></b><br>
+	
+	<h3>EL 출력</h3>
+	기존코드 : <%= 1+5 %><br>
+	EL : ${100+500}<br>
+	EL : ${"1"+1}<br> <!-- 자동 형변환 >> 2 -->
+	EL : ${1==1}<br>
+	EL : ${false}<br>
+	EL : ${!false}<br>
+	EL : ${empty x}<br> <!-- true -->
 </body>
 </html>
