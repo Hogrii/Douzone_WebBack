@@ -14,5 +14,9 @@
 	<hr>
 	<%= request.getAttribute("msg") %>
 	<hr>
+	
+	<hr>
+	<!-- EL로 메시지 출력 -->
+	${requestScope.msg }<br>
 </body>
 </html>

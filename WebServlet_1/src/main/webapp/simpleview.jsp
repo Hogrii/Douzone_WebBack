@@ -12,5 +12,7 @@
 	<!-- 
 		http://localhost:8090/WebServlet_1/simple
 	-->
+	<h3>EL</h3>
+	${requestScope.result }<br>
 </body>
 </html>
