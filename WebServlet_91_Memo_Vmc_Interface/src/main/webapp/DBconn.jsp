@@ -1,0 +1,20 @@
+<%@page import="kr.or.kosa.utils.ConnectionHelper"%>
+<%@page import="java.sql.Connection"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+Connection conn = null;
+conn = ConnectionHelper.getConnection("oracle");
+System.out.println(conn.toString());
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%= conn.isClosed() %>
+</body>
+</html>
