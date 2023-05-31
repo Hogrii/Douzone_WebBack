@@ -15,7 +15,7 @@ public class MemberUpdateService implements Action{
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		int age = Integer.parseInt(request.getParameter("age"));
-		char gender = request.getParameter("gender").charAt(0);
+		String gender = request.getParameter("gender");
 		String email = request.getParameter("email");
 
 		MemberDTO dto = new MemberDTO();
@@ -30,7 +30,7 @@ public class MemberUpdateService implements Action{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/Ex03_Memberlist.jsp");
+		forward.setPath("list.Member");
 		return forward;
 	}
 

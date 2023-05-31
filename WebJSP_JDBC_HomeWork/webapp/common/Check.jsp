@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%    
-	if(session.getAttribute("userid") == null || !session.getAttribute("userid").equals("admin") ){
-		//강제로 페이지 이동
-		//out.print("<script>location.href='Ex02_JDBC_Login.jsp'</script>");
-		response.sendRedirect("Ex02_JDBC_Login.jsp");
-	}
-%>	
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<c:choose>
+	<c:when test="${session.getAttribute('userid') == null || !session.getAttribute('userid') == 'admin'}">
+		<c:redirect url="moveLogin.Member"></c:redirect>
+	</c:when>
+</c:choose>

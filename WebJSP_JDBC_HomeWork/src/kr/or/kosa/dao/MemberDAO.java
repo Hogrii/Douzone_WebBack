@@ -42,6 +42,37 @@ public class MemberDAO {
 		}
 		return 3;
 	}
+	
+	// 회원리스트 조회
+	public List<MemberDTO> listMember() {
+		List<MemberDTO> memberList = new ArrayList<MemberDTO>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select id, ip from koreamember";
+		
+		try {
+			conn = ConnectionHelper.getConnection("oracle");
+			pstmt = conn.prepareStatement(sql);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MemberDTO dto = new MemberDTO();
+				dto.setId(rs.getString(1));
+				dto.setIp(rs.getString(2));
+				
+				memberList.add(dto);
+			}
+		}catch(Exception e) {
+			
+		}finally {
+			
+		}
+		
+		return memberList;
+	}
 
 	// 업데이트 페이지
 	public MemberDTO updatePage(String id) {
@@ -64,7 +95,7 @@ public class MemberDAO {
 				dto.setPwd(rs.getString(2));
 				dto.setName(rs.getString(3));
 				dto.setAge(rs.getInt(4));
-				dto.setGender(rs.getString(5).charAt(0));
+				dto.setGender(rs.getString(5));
 				dto.setEmail(rs.getString(6));
 			}
 		} catch (Exception e) {
@@ -97,7 +128,7 @@ public class MemberDAO {
 				dto.setPwd(rs.getString(2));
 				dto.setName(rs.getString(3));
 				dto.setAge(rs.getInt(4));
-				dto.setGender(rs.getString(5).charAt(0));
+				dto.setGender(rs.getString(5));
 				dto.setEmail(rs.getString(6));
 			}
 		} catch (Exception e) {

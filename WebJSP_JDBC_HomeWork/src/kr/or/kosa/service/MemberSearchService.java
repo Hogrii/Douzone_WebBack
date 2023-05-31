@@ -22,7 +22,7 @@ public class MemberSearchService implements Action{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/Ex03_MemberSearch.jsp");
+		forward.setPath("moveSearch.Member");
 		return forward;
 	}
 }

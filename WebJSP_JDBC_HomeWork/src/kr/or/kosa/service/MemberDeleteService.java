@@ -17,7 +17,7 @@ public class MemberDeleteService implements Action{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/Ex03_Memberlist.jsp");		
+		forward.setPath("list.Member");		
 		return forward;
 	}
 

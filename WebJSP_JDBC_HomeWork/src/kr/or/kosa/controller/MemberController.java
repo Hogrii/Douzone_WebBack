@@ -14,7 +14,9 @@ import kr.or.kosa.action.ActionForward;
 import kr.or.kosa.service.MemberDeleteService;
 import kr.or.kosa.service.MemberDetailService;
 import kr.or.kosa.service.MemberJoinService;
+import kr.or.kosa.service.MemberListService;
 import kr.or.kosa.service.MemberLoginService;
+import kr.or.kosa.service.MemberLogoutService;
 import kr.or.kosa.service.MemberSearchService;
 import kr.or.kosa.service.MemberUpdatePageService;
 import kr.or.kosa.service.MemberUpdateService;
@@ -68,6 +70,48 @@ public class MemberController extends HttpServlet {
 			// 검색
 			action = new MemberSearchService();
 			forward = action.execute(request, response);
+		}else if(urlcommand.equals("/list.Member")) {
+			// 리스트
+			action = new MemberListService();
+			forward = action.execute(request, response);
+		}else if(urlcommand.equals("/logout.Member")) {
+			// 로그아웃
+			action = new MemberLogoutService();
+			forward = action.execute(request, response);
+		}else if(urlcommand.equals("/moveDetail.Member")) {
+			// 디테일로 이동
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/WEB-INF/views/member/Ex03_MemberDetail.jsp");			
+		}else if(urlcommand.equals("/moveLogin.Member")) {
+			// 로그인으로 이동
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/WEB-INF/views/login/Ex02_JDBC_Login.jsp");
+		}else if(urlcommand.equals("/moveMain.Member")) {
+			// 메인으로 이동
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/WEB-INF/views/member/Ex02_JDBC_Main.jsp");
+		}else if(urlcommand.equals("/moveJoin.Member")) {
+			// 회원가입으로 이동
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/WEB-INF/views/join/Ex02_JDBC_JoinForm.jsp");
+		}else if(urlcommand.equals("/moveSearch.Member")) {
+			// 검색리스트로 이동
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/WEB-INF/views/member/Ex03_MemberSearch.jsp");
+		}else if(urlcommand.equals("/moveEdit.Member")) {
+			// 편집페이지로 이동
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/WEB-INF/views/member/Ex03_MemberEdit.jsp");
+		}else if(urlcommand.equals("/moveList.Member")) {
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/WEB-INF/views/member/Ex03_Memberlist.jsp");
 		}
 		
 		if(forward != null) {

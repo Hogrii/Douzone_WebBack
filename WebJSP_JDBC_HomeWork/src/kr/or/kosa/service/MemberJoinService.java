@@ -17,7 +17,7 @@ public class MemberJoinService implements Action{
 		String pwd = request.getParameter("pwd");
 		String name = request.getParameter("mname");
 		int age = Integer.parseInt(request.getParameter("age"));
-		char gender = request.getParameter("gender").charAt(0);
+		String gender = request.getParameter("gender");
 		System.out.println("gender : " + gender);
 		String email = request.getParameter("email");
 		String ip = request.getRemoteAddr();
@@ -35,7 +35,7 @@ public class MemberJoinService implements Action{
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/Ex02_JDBC_Login.jsp");
+		forward.setPath("moveLogin.Member");
 		return forward;
 	}
 

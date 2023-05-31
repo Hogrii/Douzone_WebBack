@@ -24,18 +24,18 @@ public class MemberLoginService implements Action {
 		case 1:
 			// 로그인
 			forward.setRedirect(false);
-			forward.setPath("/Ex02_JDBC_Main.jsp");
+			forward.setPath("moveMain.Member");
 			session.setAttribute("userid", id);
 			break;
 		case 2:
 			// 패스워드 다름
 			forward.setRedirect(true);
-			forward.setPath("/WebJSP_JDBC_HomeWork/Ex02_JDBC_Login.jsp");
+			forward.setPath("moveLogin.Member");
 			break;
 		case 3:
 			// 아이디가 없음
 			forward.setRedirect(true);
-			forward.setPath("/WebJSP_JDBC_HomeWork/Ex02_JDBC_JoinForm.jsp");
+			forward.setPath("moveJoin.Member");
 			break;
 		default:
 			break;
